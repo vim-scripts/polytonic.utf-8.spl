@@ -1,0 +1,86 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=3388
+
+---------------------------------------------------------------------
+Spell file for multi accented (also known as polytonic) Greek. 
+---------------------------------------------------------------------
+
+This spell file is for checking the spelling of texts typed in multi 
+accented (or polytonic) Greek. It is useful to Greek scholars 
+(hellenists) as well as native Greek speakers who prefer to write 
+in the traditional multi accented script.  
+
+The word list covers all the ancient and modern Greek vocabulary.
+About 1.5 million words all spelled in the traditional polytonic system. 
+
+The ancient Greek word list is derived from several corpora like 
+Perseus [2], and TLG [3] and other sources.
+
+The modern Greek word list is derived from the ispell dictionary el_GR [1]
+but all the words have been appropriately accentuated. This spell file
+flags monotonic spelling as errors.
+
+The two lists are combined, cleaned of double entries (there was a large 
+ovelap) and sorted. Last syllable varia (grave accent)  and double oxias 
+(as when shifted from the following word) have been replaced by SFX 
+rules in the affix file.
+
+It works quite well with Vim and it is fast, but bear in mind that it is far
+from finished. (see bugs below).
+
+----------------
+Screenshot
+----------------
+http://img29.imageshack.us/img29/916/vimpolytonicspell.png
+
+----------------
+Installation.
+----------------
+
+Copy the file polytonic.utf-8.spl to your home .vim spell 
+directory (~/.vim/spell/). If the directory does not exist, create it. 
+
+
+----------------
+Usage
+----------------
+
+To use it you must set the encodings to utf-8.
+:set encoding=utf-8
+:set fenc=utf-8 
+:set inputenc=utf-8
+
+For polytonic Greek text entry see: vimscript#2743
+
+To activate spell cheching:
+:set spelllang=polytonic
+:set spell
+
+For bilingual spell checking: 
+:set spelllang=polytonic,en
+
+To limit spelling suggestions to 8:
+:set spellsuggest=8
+
+--------------
+Known bugs
+--------------
+
+Hyphenated words are not recognised and are flagged as spelling errors.
+
+It does not distinguish between medial and final sigma. Suggestions only
+display medial sigma and :spelldump shows all final sigmas as medial ones.
+A final sigma in the middle of a word passes as correct.
+
+Words written in capital letters, even when are spelled correctly (without accents), are 
+flagged as errors.
+
+If anyone wishes to help, e-mail me and I will forward the .dic and .aff files.
+proteuss AT sdf.lonestar.org
+
+------------
+References
+------------
+[1] http://ispell.math.upatras.gr
+[2] http://www.perseus.tufts.edu/hopper/opensource/download
+[3] http://www.tlg.uci.edu/
+
